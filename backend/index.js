@@ -13,11 +13,8 @@ module.exports = async (req, res) => {
     if (level !== 0 && level !== 1 && level !== 2) throw new Error('Invalid level');
 
     const problemInputText = await retrieveGeneratedData(user.toLowerCase(), level);
-    res.end(problemInputText);
+    res.status(200).end(problemInputText);
   } catch (err) {
-    res.end(
-      err +
-        "\nError! Make sure you are entering your GitHub username exactly correctly. If you're still having issues, please contact VandyHacks.",
-    );
+    res.status(401).end('Make sure your GitHub username is correctly entered.');
   }
 };
