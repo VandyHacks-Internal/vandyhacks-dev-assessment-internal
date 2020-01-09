@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     level = Number(level);
     if (level !== 0 && level !== 1 && level !== 2) throw new Error('Invalid level');
 
-    const problemInputText = await retrieveGeneratedData(user, level);
+    const problemInputText = await retrieveGeneratedData(user.toLowerCase(), level);
     res.end(problemInputText);
   } catch (err) {
     res.end(
