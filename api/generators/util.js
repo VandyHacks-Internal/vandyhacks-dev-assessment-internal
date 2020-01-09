@@ -1,4 +1,4 @@
-exports.generateEmailDomain = vanderbiltFrequency => {
+exports.generateEmailDomain = (vanderbiltFrequency = 0.23) => {
   if (Math.random() < vanderbiltFrequency) return '@vanderbilt.edu';
   // everything from this point on is proportional to 1-vanderbiltFrequency
   const rand = Math.random();

@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { getRandomInt } = require('../util');
+const { getRandomInt, generateEmailDomain } = require('../util');
 
 const INTERVAL_LENGTH = 11; // in hours
 const NUM_SECONDS_INTERVAL = INTERVAL_LENGTH * 60 * 60; // in seconds
