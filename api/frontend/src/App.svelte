@@ -1,0 +1,106 @@
+<script>
+  export let rootUrl;
+  let ghUsername;
+
+  const levels = [0, 1, 2];
+</script>
+
+<style>
+  div {
+    text-align: center;
+  }
+  svg {
+    width: 15%;
+  }
+
+  input {
+    width: 24rem;
+    /* height: 4em; */
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .green {
+    border: 3px solid hsl(114, 87%, 41%);
+    color: #20c20e;
+  }
+
+  .green:hover,
+  .green:focus {
+    background-color: hsl(114, 87%, 41%);
+    color: white;
+    cursor: pointer;
+  }
+
+  .gray {
+    border: 3px solid lightgray;
+    color: lightgray;
+  }
+  /* 
+  .gray:hover,
+  .gray:focus {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+  } */
+</style>
+
+<div>
+  <svg viewBox="0 0 351.13 343.99">
+    <defs>
+      <style>
+        .e7532d7f-8b0a-4a7e-b147-f37ae1f1b97b {
+          fill: #fff;
+          stroke: #20c20e;
+          stroke-miterlimit: 10;
+          stroke-width: 5.99px;
+        }
+      </style>
+    </defs>
+    <title>Asset 1</title>
+    <g id="b31ab2b5-9986-4a69-b92e-29055fb6d7a3" data-name="Layer 2">
+      <g id="b42df80a-f385-401a-a9e8-febce0a2c5c2" data-name="vh top">
+        <path
+          class="e7532d7f-8b0a-4a7e-b147-f37ae1f1b97b"
+          d="M252.14,3h-18A7.18,7.18,0,0,0,228,7.74L152.23,231.05l-76-223.3A7.2,7.2,0,0,0,70,3H52A3.08,3.08,0,0,0,48.7,5.9,3.54,3.54,0,0,0,49,7.75l88.87,261.16a6.59,6.59,0,0,0,.9,1.7l-9.58,28.26L30.51,7.76A7.14,7.14,0,0,0,24.29,3h-18A3.07,3.07,0,0,0,3,5.94a3.53,3.53,0,0,0,.3,1.82L114.56,335.83a7,7,0,0,0,1.88,2.8,3,3,0,0,0,3.15,2.27h18a5.44,5.44,0,0,0,2.06-.44,3,3,0,0,0,1.6-.9,7.29,7.29,0,0,0,2.56-3.4L255.15,7.75a3.42,3.42,0,0,0-1.32-4.4A2.78,2.78,0,0,0,252.14,3Z" />
+        <path
+          class="e7532d7f-8b0a-4a7e-b147-f37ae1f1b97b"
+          d="M344.82,3h-18a7.18,7.18,0,0,0-6.22,4.73L209.26,336.25a3.43,3.43,0,0,0,1.34,4.4,2.8,2.8,0,0,0,1.67.32h18a7.17,7.17,0,0,0,6.22-4.72L347.81,7.75a3.42,3.42,0,0,0-1.33-4.4A2.76,2.76,0,0,0,344.82,3Z" />
+        <path
+          class="e7532d7f-8b0a-4a7e-b147-f37ae1f1b97b"
+          d="M233.68,193.09h-18a7.18,7.18,0,0,0-6.22,4.73L162.57,336.25a3.41,3.41,0,0,0,1.32,4.39,2.76,2.76,0,0,0,1.66.33h18a7.15,7.15,0,0,0,6.14-4.61l47-138.58a3.41,3.41,0,0,0-1.37-4.38A2.82,2.82,0,0,0,233.68,193.09Z" />
+        <path
+          class="e7532d7f-8b0a-4a7e-b147-f37ae1f1b97b"
+          d="M222.71,172h18a7.18,7.18,0,0,0,6.22-4.73L301,7.63c.75-2.21-.1-4-1.95-4.57a2.8,2.8,0,0,0-.41,0H279.59a4.88,4.88,0,0,0-1.46.26,7.65,7.65,0,0,0-3.22,2.43,6.32,6.32,0,0,0-.76,1.46L219.48,168.44A3.05,3.05,0,0,0,222.71,172Z" />
+      </g>
+    </g>
+  </svg>
+  <h1>VandyHacks Dev Team Assessment</h1>
+  <p>
+    Here's where you'll get your inputs for the VandyHacks dev assessment. Please enter your GitHub
+    username below.
+  </p>
+  <p>
+    <strong>
+      Make sure you type your GitHub username correctly otherwise your assessment will be graded
+      against a different input.
+    </strong>
+    <br />
+    <br />
+    <input bind:value={ghUsername} />
+  </p>
+  <p class="red">
+    <strong>
+      {Boolean(ghUsername) ? 'Please make absolutely sure that your username is correct!' : ''}
+    </strong>
+  </p>
+
+  {#each levels as level}
+    <a
+      class={'btn ' + (Boolean(ghUsername) ? 'green' : 'gray')}
+      href={`${rootUrl}/?user=${ghUsername}&level=${level}`}
+      target="_blank">
+      Get your input to level {level}
+    </a>
+  {/each}
+</div>

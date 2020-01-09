@@ -1,20 +1,27 @@
 const { getProblemInputData, getAllProblemsInputData } = require('./generators/selector');
-const firebase = require('firebase/database');
+const firebase = require('firebase');
 
 firebase.initializeApp({
   databaseURL: process.env.DATABASE_URL,
 });
 
 exports.retrieveGeneratedData = async (user, level) => {
-  const userRef = firebase.database().ref('users/' + user);
+  const userRef = firebase.database().ref('/users/' + user);
+  const dbValues = (await userRef.once('value')).val();
 
-  userRef.once('value', snapshot => {
-    if (snapshot.inputs == null) {
-      // set inputs
-    } else {
-      // return current ones
-    }
-  });
+  let inputData;
+  if (dbValues.inputs == null) {
+    // generate and set inputs
+    inputData = getAllProblemsInputData(dbValues.day);
 
-  return getProblemInputData(2, level);
+    const update = { ['/users/' + user + '/inputs']: inputData };
+    await firebase
+      .database()
+      .ref()
+      .update(update);
+  } else {
+    inputData = dbValues.inputs;
+  }
+
+  return inputData[level];
 };
