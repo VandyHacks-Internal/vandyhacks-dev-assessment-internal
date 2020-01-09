@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { getRandomInt } = require('../util');
+const { getRandomInt, generateEmailDomain } = require('../util');
 
 const generateBusRoute = () => {
   const possibilities = ['GT', 'IIT', 'Purdue', 'UIUC'];
