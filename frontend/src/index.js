@@ -1,9 +1,11 @@
 import App from './App.svelte';
 
+const { protocol, host } = window.location;
+
 const app = new App({
   target: document.body,
   props: {
-    baseURL: 'http://localhost:3000/backend/',
+    baseURL: protocol + '//' + host + '/backend/',
   },
 });
 
