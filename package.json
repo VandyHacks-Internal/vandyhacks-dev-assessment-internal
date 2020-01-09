@@ -8,8 +8,7 @@
     "format": "prettier --write \"**/*.js\"",
     "server:dev": "node backend/dev.js",
     "client:dev": "parcel frontend/index.html",
-    "now-build": "parcel build frontend/index.html",
-    "now-dev": "npm run client:dev"
+    "now-build": "parcel build frontend/index.html"
   },
   "author": "Benjamin Cooper",
   "license": "MIT",

@@ -9,11 +9,11 @@ const generateBusRoute = () => {
   if (rand < 0.6) return possibilities[1];
   if (rand < 0.74) return possibilities[2];
 
-  return possibilitiesp[3];
+  return possibilities[3];
 };
 
 const generateLine = showupFrequency => {
-  const email = faker.internet.userName() + generateEmailDomain(vanderbiltFrequency);
+  const email = faker.internet.userName() + generateEmailDomain();
 
   return [
     faker.name.firstName() + ' ' + faker.name.lastName(),

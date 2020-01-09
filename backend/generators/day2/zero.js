@@ -1,6 +1,13 @@
-const quotes = require('./quotes.json');
+const quotes = require('./quotes');
 const { sampleSize, shuffle } = require('lodash');
 
 exports.generate = (length = 100) => {
-  return shuffle(sampleSize(quotes, length));
+  return JSON.stringify(
+    shuffle(
+      sampleSize(
+        quotes.map(({ text, author }) => `${text} - ${author}`),
+        length,
+      ),
+    ),
+  );
 };
