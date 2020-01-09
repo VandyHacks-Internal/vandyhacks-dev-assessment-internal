@@ -1,6 +1,5 @@
 # Level 1, Problem 2
-Each year, VandyHacks offers four buses (listed below) to other schools to help transport their hackers to VandyHacks. We release signups for these buses in advance so hackers know that they can get a ride to VandyHacks. To secure a signup, a hacker has to pay a $10 deposit (we refund this if they attend the event). In this problem, you're provided with two CSVs. The first provides details of who paid the deposit and for which route. The second provides details of who showed up at the event. Answer these two questions (with code, not Excel or similar).
-
+Each year, VandyHacks offers four buses (listed below) to other schools to help transport their hackers to VandyHacks. We release signups for these buses in advance so hackers know that they can get a ride to VandyHacks. To secure a signup, a hacker has to pay a $10 deposit (we refund this if they attend the event). In this problem, you're provided with a CSV containing everyone who paid a deposit (assume that everybody who rode the bus paid a deposit). It also contains other relevant details.
 
 ## Question
 1. How much money will VandyHacks make in the form of lost deposits (i.e. noshows)? 
