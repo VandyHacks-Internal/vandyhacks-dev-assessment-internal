@@ -1,12 +1,13 @@
 const quotes = require('./quotes');
 const { sampleSize, shuffle } = require('lodash');
+const { getRandomInt } = require('../util');
 
-exports.generate = (length = 100) => {
+exports.generate = () => {
   return JSON.stringify(
     shuffle(
       sampleSize(
         quotes.map(({ text, author }) => `${text} - ${author}`),
-        length,
+        getRandomInt(80, 120),
       ),
     ),
   );
