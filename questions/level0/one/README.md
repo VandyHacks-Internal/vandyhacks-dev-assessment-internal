@@ -5,4 +5,4 @@ A common operation that Vaken (our hackathon registration system, open sourced [
 How many of the hackers can you be sure are from Vanderbilt University? Hint: look at the emails.
 
 ## Answer format
-Your answer should be in the form of an integer. Place that integer into a file in this folder called `filter.txt` with no tabs, spaces, newlins or units.
+Your answer should be in the form of an integer. Place that integer into a file in this folder called `filter.txt` with no tabs, spaces, newlines or units.

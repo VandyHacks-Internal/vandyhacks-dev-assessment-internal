@@ -1,5 +1,5 @@
 # Level 2, Problem 1
-The goal of this problem is to check your ability to make web requests. A frequent operation that we have to do in VandyHacks is have our website retrieve data from the backend. For example, when a hacker loads Vaken (our hackathon registration system, open sourced [here](https://github.com/Vandyhacks/vaken)), we have to load if they've been accepted to VandyHacks as well as their name and such. In this problem, you'll be using an API from the European Central Bank that helps you convert currencies.
+The goal of this problem is to test your ability to make web requests. A frequent operation that we have to do in VandyHacks is have our website retrieve data from the backend. For example, when a hacker loads Vaken (our hackathon registration system, open sourced [here](https://github.com/Vandyhacks/vaken)), we have to load if they've been accepted to VandyHacks as well as their name and such. In this problem, you'll be using an API from the European Central Bank that helps you convert currencies.
 
 https://api.exchangeratesapi.io/2010-01-10
 
