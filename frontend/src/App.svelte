@@ -78,7 +78,7 @@
   {#each levels as level}
     <a
       class="btn {Boolean(ghUsername) ? 'green' : 'gray'}"
-      href={`${baseURL}?user=${ghUsername}&level=${level}`}
+      href={Boolean(ghUsername) ? `${baseURL}?user=${ghUsername}&level=${level}` : undefined}
       target="_blank">
       Get your input to level {level}
     </a>
