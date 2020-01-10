@@ -10,7 +10,7 @@ exports.retrieveGeneratedData = async (user, level) => {
   const dbValues = (await userRef.once('value')).val();
 
   let inputData;
-  if (!dbValues.inputs) {
+  if (dbValues.inputs == null) {
     // generate and set inputs
     inputData = getAllProblemsInputData(dbValues.day);
 
