@@ -7,8 +7,8 @@
 
 <style>
   .gray {
-    border: 3px solid lightgray;
-    color: lightgray;
+    border: 3px solid darkgray;
+    color: darkgray;
   }
 
   .green {
@@ -30,7 +30,7 @@
     <defs>
       <style>
         .e7532d7f-8b0a-4a7e-b147-f37ae1f1b97b {
-          fill: #fff;
+          fill-opacity: 0;
           stroke: #20c20e;
           stroke-miterlimit: 10;
           stroke-width: 5.99px;
