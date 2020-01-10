@@ -27,9 +27,10 @@ const generateLine = showupFrequency => {
 
 exports.generate = () => {
   const showupFrequency = Math.random() * 0.55 + 0.45; // between .45 and 1
-  const length = getRandomInt(80, 120);
 
-  const users = new Array(length).fill(0).map(_ => generateLine(showupFrequency).join(','));
+  const users = new Array(getRandomInt(80, 120))
+    .fill(0)
+    .map(_ => generateLine(showupFrequency).join(','));
 
   users.unshift(['Name', 'Phone', 'Email', 'BusRoute', 'PaidDeposit', 'ShowedUp'].join(','));
   return users.join('\n');

@@ -1,8 +1,8 @@
-# Level 0, Problem 2
-A fun easter egg that we've included on our website in past year's is a randomly selected and (hopefully!) humorous message at the bottom of the page (like "Made with real cane sugar" or "Made with this one weird trick"). In this problem, you'll be provided with a JSON array of statements.
+# Level 0, Problem 1
+A common operation that Vaken (our hackathon registration system, open sourced [here](https://github.com/Vandyhacks/vaken)) has to perform is filtering hackers based on specific queries. In this question, you'll be provided sample hacker data in JSON format. 
 
 ## Question
-Randomly select *30* unique statements from the array and return them in a new JSON array.
+How many of the hackers have some sort of dietary restriction? That includes allergies.
 
 ## Answer format
-Take your JSON array and place it into a file in this folder called `random.json`.
+Your answer should be in the form of an integer. Place that integer into a file in this folder called `dietary.txt` with no tabs, spaces, newlines or units.

@@ -25,8 +25,8 @@ const generateLine = () => {
   ];
 };
 
-exports.generate = (length = 500) => {
-  let users = new Array(length).fill(0).map(_ => generateLine());
+exports.generate = () => {
+  let users = new Array(getRandomInt(480, 540)).fill(0).map(_ => generateLine());
 
   // only care about generated time
   users.sort(([_, __, ___, a], [____, _____, ______, b]) => {
