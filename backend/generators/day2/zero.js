@@ -12,16 +12,17 @@ const generateEntry = () => {
   const email = faker.internet.userName() + generateEmailDomain();
   const allergyList = [];
 
-  if (Math.random() < NUT_ALLERGY) allergyList.push('Nuts');
-  if (Math.random() < SOY_ALLERGY) allergyList.push('Soybeans');
-  if (Math.random() < GUAVAS) allergyList.push('Guavas');
+  const rand = Math.random();
+  if (rand < NUT_ALLERGY) allergyList.push('Nuts');
+  if (rand < SOY_ALLERGY) allergyList.push('Soybeans');
+  if (rand < GUAVAS) allergyList.push('Guavas');
 
   return {
     name: faker.name.firstName() + ' ' + faker.name.lastName(),
     phone: faker.phone.phoneNumber(),
     email,
-    isVegan: Math.random() < VEGAN_CHANCE,
-    glutenFree: Math.random() < GLUTEN_FREE,
+    isVegan: rand < VEGAN_CHANCE,
+    glutenFree: rand < GLUTEN_FREE,
     allergies: allergyList.join(','),
   };
 };
