@@ -29,6 +29,8 @@ export default async function(req: NowRequest, res: NowResponse) {
       res.setHeader('Content-Type', 'application/json');
       res.status(200).end(problemSolution);
     }
+
+    res.status(401).end('Mode is incorrect');
   } catch (err) {
     res.status(401).end('Make sure the GitHub username is correctly entered.');
   }
