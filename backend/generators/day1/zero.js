@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { generateEmailDomain } = require('../util');
+const { generateEmailDomain, getRandomInt } = require('../util');
 
 const generateEntry = vanderbiltFrequency => {
   const email = faker.internet.userName() + generateEmailDomain(vanderbiltFrequency);
