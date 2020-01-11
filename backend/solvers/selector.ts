@@ -12,10 +12,6 @@ import { solve as twoTwo } from './day2/two';
 const one = [oneZero, oneOne, oneTwo];
 const two = [twoZero, twoOne, twoTwo];
 
-firebase.initializeApp({
-  databaseURL: process.env.DATABASE_URL,
-});
-
 export async function getProblemSolution(user: string, level: Level): Promise<Solution> {
   const { day, inputs } = (
     await firebase
