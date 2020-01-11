@@ -1,5 +1,10 @@
 {
-  "compilerOptions": { "strict": true, "resolveJsonModule": true, "esModuleInterop": true },
+  "compilerOptions": {
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true
+  },
   "include": ["backend/**/*.ts"],
   "exclude": ["node_modules/**"]
 }
