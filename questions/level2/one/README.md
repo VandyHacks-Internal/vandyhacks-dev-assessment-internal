@@ -8,7 +8,7 @@ That specific URL will give you a JSON describing the conversion rate between th
 For this problem, you'll be provided a JSON array of dates in `YYYY-MM-DD` format (this is the exact same format the API uses. You should NOT have to change it).
 
 ## Question
-Return a JSON array with the conversion between GBP (that's the British pound) and the euro for each of the dates provided in the input array.
+Return a JSON array with the conversion between the euro and the GBP (that's the British pound) for each of the dates provided in the input array.
 
 ## Answer Format
 The JSON array with the `GBP` value for each date should be in a file called `currency.json`.
