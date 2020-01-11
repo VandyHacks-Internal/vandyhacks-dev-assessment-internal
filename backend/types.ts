@@ -3,3 +3,7 @@ export enum Level {
   Two,
   Three,
 }
+
+export interface Solution {
+  answer: any;
+}

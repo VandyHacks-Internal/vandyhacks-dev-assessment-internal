@@ -1,4 +1,4 @@
-import { Level } from '../enums';
+import { Level } from '../types';
 
 import { generate as oneZero } from './day1/zero';
 import { generate as oneOne } from './day1/one';
