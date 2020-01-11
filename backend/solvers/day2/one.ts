@@ -15,11 +15,14 @@ const updateBusMap = (route: Route, busMap: BusMap) => {
 };
 
 export function solve(input: string): { answer: { one: number; two: Route } } {
-  const parsedData = input.split('\n').map(el => {
-    const [_, __, ___, busRoute, ____, showedUp] = el.split(',');
+  const parsedData = input
+    .split('\n')
+    .map(el => {
+      const [_, __, ___, busRoute, ____, showedUp] = el.split(',');
 
-    return { busRoute, showedUp: Boolean(showedUp) };
-  });
+      return { busRoute, showedUp: showedUp === 'true' };
+    })
+    .slice(1);
 
   let one = 0;
   const busMap: BusMap = { GT: 0, IIT: 0, Purdue: 0, UIUC: 0 };
@@ -30,7 +33,7 @@ export function solve(input: string): { answer: { one: number; two: Route } } {
 
   const [two] = Object.entries(busMap).reduce(
     (acc, [route, curr]) => {
-      if (curr > acc) return [route, curr];
+      if (curr > acc[1]) return [route, curr];
       return acc;
     },
     ['', 0],

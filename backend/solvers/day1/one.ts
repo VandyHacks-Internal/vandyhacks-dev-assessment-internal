@@ -11,12 +11,15 @@ const updateHourMap = (hour: number, hourMap: HourMap) => {
 };
 
 export function solve(input: string): { answer: { one: number; two: number } } {
-  const parsedData = input.split('\n').map(el => {
-    const [_, __, ___, checkin] = el.split(',');
-    const [hour, minute, second] = checkin.split(':').map(el => Number(el));
+  const parsedData = input
+    .split('\n')
+    .map(el => {
+      const [_, __, ___, checkin] = el.split(',');
+      const [hour, minute, second] = checkin.split(':').map(el => Number(el));
 
-    return [hour, hour * 3600 + minute * 60 + second];
-  });
+      return [hour, hour * 3600 + minute * 60 + second];
+    })
+    .slice(1);
 
   let one = 0;
   const hourMap: HourMap = {};

@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { Level, Solution } from '../types';
 import firebase from 'firebase';
 
@@ -17,20 +18,25 @@ firebase.initializeApp({
 });
 
 export async function getProblemSolution(user: string, level: Level): Promise<Solution> {
-  const { day, input } = (
+  const { day, inputs } = (
     await firebase
       .database()
       .ref(`/users/${user}/`)
       .once('value')
   ).val();
 
-  if (input == null) throw new Error("User doesn't have input");
+  if (inputs == null) throw new Error("User doesn't have input");
 
   if (day === 1) {
-    return one[level](input[level]);
+    return one[level](inputs[level]);
   } else if (day === 2) {
-    return two[level](input[level]);
+    return two[level](inputs[level]);
   }
 
   throw new Error("Day either doesn't exist or isn't 1/2");
 }
+
+(async () => {
+  console.log(await getProblemSolution('cktang88', 1));
+  process.exit(0);
+})();
