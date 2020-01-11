@@ -1,21 +1,22 @@
-const faker = require('faker');
-const { generateEmailDomain, getRandomInt } = require('../util');
-
-const generateEntry = vanderbiltFrequency => {
-  const email = faker.internet.userName() + generateEmailDomain(vanderbiltFrequency);
-
-  return {
-    name: faker.name.firstName() + ' ' + faker.name.lastName(),
-    phone: faker.phone.phoneNumber(),
-    email,
-  };
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-
-exports.generate = () => {
-  const vanderbiltFrequency = Math.random() * 0.8 + 0.2; // from .2 to 1
-  const users = new Array(getRandomInt(82, 123))
-    .fill(0)
-    .map(_ => generateEntry(vanderbiltFrequency));
-
-  return JSON.stringify(users);
+exports.__esModule = true;
+var faker_1 = __importDefault(require("faker"));
+var util_1 = require("../util");
+var generateEntry = function (vanderbiltFrequency) {
+    var email = faker_1["default"].internet.userName() + util_1.generateEmailDomain(vanderbiltFrequency);
+    return {
+        name: faker_1["default"].name.firstName() + ' ' + faker_1["default"].name.lastName(),
+        phone: faker_1["default"].phone.phoneNumber(),
+        email: email
+    };
+};
+exports.generate = function () {
+    var vanderbiltFrequency = Math.random() * 0.8 + 0.2; // from .2 to 1
+    var users = new Array(util_1.getRandomInt(82, 123))
+        .fill(0)
+        .map(function (_) { return generateEntry(vanderbiltFrequency); });
+    return JSON.stringify(users);
 };

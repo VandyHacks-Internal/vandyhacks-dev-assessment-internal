@@ -1,0 +1,5 @@
+{
+  "compilerOptions": { "strict": true, "resolveJsonModule": true, "esModuleInterop": true },
+  "include": ["backend/**/*.ts"],
+  "exclude": ["node_modules/**"]
+}
