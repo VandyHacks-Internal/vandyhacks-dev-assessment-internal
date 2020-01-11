@@ -1,5 +1,6 @@
 # Level 0, Problem 2
-A common operation that Vaken (our hackathon registration system, open sourced [here](https://github.com/Vandyhacks/vaken)) has to perform is filtering hackers based on specific queries. In this question, you'll be provided sample hacker data in JSON format. 
+A common operation that Vaken (our hackathon registration system, open sourced [here](https://github.com/Vandyhacks/vaken)) has to perform is filtering attendees (we refer to them as "hackers") based on specific queries. In this question, you'll be provided sample hacker data in JSON format. 
+
 
 ## Question
 How many of the hackers have some sort of dietary restriction? That includes allergies.

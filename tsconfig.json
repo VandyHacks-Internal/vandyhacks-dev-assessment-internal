@@ -3,7 +3,8 @@
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "noEmit": true
+    "noEmit": true,
+    "strictNullChecks": true
   },
   "include": ["backend/**/*.ts"],
   "exclude": ["node_modules/**"]

@@ -16,11 +16,11 @@ There are three levels as part of this assessment from level 0 to level 2. Each 
 ### What resources am I allowed to use?
 You are allowed to use any reference material you'd like (including open sourced code on the Internet). If you directly copy code from GitHub or Stackoverflow, you do **not** have to cite it. Real software engineering invovles cleverly reusing others' code - we will not penalize that. 
 
-You are **NOT** allowed to received aid from another person. That includes other candidates applying for board, friends not applying to VandyHacks, professors, family and so on. Additionally, you are not permitted to solicit help from strangers by posting on StackOverflow or any forum site. 
+You are **NOT** allowed to receive aid from another person. That includes other candidates applying for board, friends not applying to VandyHacks, professors, family and so on. Additionally, you are not permitted to solicit help from strangers by posting on StackOverflow or any forum site. 
 
 If you are confused by a question, please email dev@vandyhacks.org for clarification or find a current VandyHacks board member. 
  
-Anyone involved in any anuthorized collaboration will be immediately rejected from board. 
+Anyone involved in any unauthorized collaboration will be immediately rejected from board. 
 
 After the deadline, feel free to talk to whomever you'd like and share your code wherever you'd like!
 
