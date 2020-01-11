@@ -1,5 +1,5 @@
-const { getAllProblemsInputData } = require('./generators/selector');
-const firebase = require('firebase');
+import { getAllProblemsInputData } from './generators/selector';
+import firebase from 'firebase';
 
 firebase.initializeApp({
   databaseURL: process.env.DATABASE_URL,

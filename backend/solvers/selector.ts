@@ -1,4 +1,3 @@
-require('dotenv').config();
 import { Level, Solution } from '../types';
 import firebase from 'firebase';
 
@@ -35,8 +34,3 @@ export async function getProblemSolution(user: string, level: Level): Promise<So
 
   throw new Error("Day either doesn't exist or isn't 1/2");
 }
-
-(async () => {
-  console.log(await getProblemSolution('cktang88', 1));
-  process.exit(0);
-})();
