@@ -1,21 +1,14 @@
-import fetch from 'node-fetch';
+import pokemon from './pokemonWeight.json';
 
-const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
+// I'm not making an interface with every fucking Pokemon in it
+interface PokemonWeightMap {
+  [key: string]: number;
+}
 
-const getApiURL = (pokemon: string) => {
-  return `${API_URL}${pokemon}/`;
-};
-
-const fetchByPokemon = async (pokemon: string): Promise<number> => {
-  return (await (await fetch(getApiURL(pokemon))).json()).weight;
-};
-
-export async function solve(input: string): Promise<{ answer: number[] }> {
-  const pokemons = JSON.parse(input);
+export function solve(input: string): { answer: number[] } {
+  const theirPokemons: string[] = JSON.parse(input);
 
   return {
-    answer: await Promise.all(
-      pokemons.map(async (pokemon: string): Promise<number> => fetchByPokemon(pokemon)),
-    ),
+    answer: theirPokemons.map(el => (pokemon as PokemonWeightMap)[el]),
   };
 }
