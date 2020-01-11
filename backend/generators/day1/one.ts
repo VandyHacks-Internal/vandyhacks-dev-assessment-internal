@@ -25,7 +25,7 @@ const generateLine = (): [string, string, string, number] => {
   ];
 };
 
-exports.generate = () => {
+export function generate() {
   const users = new Array(getRandomInt(480, 540)).fill(0).map(_ => generateLine());
 
   // only care about generated time
@@ -52,4 +52,4 @@ exports.generate = () => {
 
   usersWithTimeString.unshift(['Name', 'Phone', 'Email', 'Checkin']);
   return usersWithTimeString.map(el => el.join(',')).join('\n');
-};
+}

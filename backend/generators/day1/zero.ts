@@ -11,11 +11,11 @@ const generateEntry = (vanderbiltFrequency: number) => {
   };
 };
 
-exports.generate = () => {
+export function generate() {
   const vanderbiltFrequency = Math.random() * 0.8 + 0.2; // from .2 to 1
   const users = new Array(getRandomInt(82, 123))
     .fill(0)
     .map(_ => generateEntry(vanderbiltFrequency));
 
   return JSON.stringify(users);
-};
+}

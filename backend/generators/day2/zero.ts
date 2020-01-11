@@ -27,8 +27,8 @@ const generateEntry = () => {
   };
 };
 
-exports.generate = () => {
+export function generate() {
   const users = new Array(getRandomInt(80, 120)).fill(0).map(_ => generateEntry());
 
   return JSON.stringify(users);
-};
+}

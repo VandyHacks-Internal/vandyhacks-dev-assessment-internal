@@ -25,7 +25,7 @@ const generateLine = (showupFrequency: number) => {
   ];
 };
 
-exports.generate = () => {
+export function generate() {
   const showupFrequency = Math.random() * 0.55 + 0.45; // between .45 and 1
 
   const users = new Array(getRandomInt(80, 120))
@@ -34,4 +34,4 @@ exports.generate = () => {
 
   users.unshift(['Name', 'Phone', 'Email', 'BusRoute', 'PaidDeposit', 'ShowedUp'].join(','));
   return users.join('\n');
-};
+}
