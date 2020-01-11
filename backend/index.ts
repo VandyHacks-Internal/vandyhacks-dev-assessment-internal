@@ -24,7 +24,7 @@ export default async function(req: NowRequest, res: NowResponse) {
     if (mode === 'generate') {
       const generatedInput = await retrieveGeneratedData(user, levelNum);
       res.status(200).end(generatedInput);
-    } else if (mode === 'solve') {
+    } else if (mode === process.env.SOLVE_SECRET) {
       const problemSolution = JSON.stringify(await getProblemSolution(user, levelNum));
       res.setHeader('Content-Type', 'application/json');
       res.status(200).end(problemSolution);
