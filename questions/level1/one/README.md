@@ -4,7 +4,7 @@ At VandyHacks, we use NFC wristbands to check people into meals and events. This
 ## Questions
 Answer these two questions using **code** (not Excel or similar).
 1. How many people came between time start and time end?
-2. During which hour did the most people check in?
+2. During which hour did the most people check in? Give the earlier hour if there is a tie.
 
 
 ## Answer Format
