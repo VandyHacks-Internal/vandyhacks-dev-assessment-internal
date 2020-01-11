@@ -1,7 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "backend/index.js", "use": "@now/node" },
+    { "src": "backend/index.ts", "use": "@now/node" },
     { "src": "package.json", "use": "@now/static-build" }
   ],
   "routes": [
