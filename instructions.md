@@ -5,7 +5,7 @@ Our process for determining technical competency this year is significantly diff
 
 Depending on your performance on this assessment (note: we are **not** looking for perfect scores), your application, and your interview, we may invite you for a follow up pair programming interview. We'll send you an email on this!
 
-If at any point, you have questions, please feel free to contact us at dev@vandyhacks.org. We also appreciate comments and feedback on this process.
+If at any point, you have questions, please feel free to contact us at ben@vandyhacks.org. We also appreciate comments and feedback on this process.
 
 ## How this assessment is structured?
 
