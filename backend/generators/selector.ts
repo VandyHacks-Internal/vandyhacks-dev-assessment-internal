@@ -4,9 +4,9 @@ import { generate as oneZero } from './day1/zero';
 import { generate as oneOne } from './day1/one';
 import { generate as oneTwo } from './day1/two';
 
-import { generate as twoZero } from './day1/zero';
-import { generate as twoOne } from './day1/one';
-import { generate as twoTwo } from './day1/two';
+import { generate as twoZero } from './day2/zero';
+import { generate as twoOne } from './day2/one';
+import { generate as twoTwo } from './day2/two';
 
 const one = [oneZero, oneOne, oneTwo];
 const two = [twoZero, twoOne, twoTwo];
