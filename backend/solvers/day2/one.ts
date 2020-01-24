@@ -9,6 +9,13 @@ interface BusMap {
 
 type Route = 'GT' | 'IIT' | 'Purdue' | 'UIUC';
 
+interface TwoAnswerFormat {
+  GT: number;
+  IIT: number;
+  Purdue: number;
+  UIUC: number;
+}
+
 const updateBusMap = (route: Route, showedUp: boolean, busMap: BusMap) => {
   if (!busMap[route]) busMap[route] = [showedUp ? 1 : 0, 1];
   else {
@@ -17,7 +24,7 @@ const updateBusMap = (route: Route, showedUp: boolean, busMap: BusMap) => {
   }
 };
 
-export function solve(input: string): { answer: { one: number; two: BusMap } } {
+export function solve(input: string): { answer: { one: number; two: TwoAnswerFormat } } {
   const parsedData = input
     .split('\n')
     .map(el => {
@@ -34,13 +41,17 @@ export function solve(input: string): { answer: { one: number; two: BusMap } } {
     one += showedUp ? DEPOSIT_COST : 0;
   }
 
-  // const [two] = Object.entries(busMap).reduce(
-  //   (acc, [route, curr]) => {
-  //     if (curr > acc[1]) return [route, curr];
-  //     return acc;
-  //   },
-  //   ['', 0],
-  // );
+  const two: TwoAnswerFormat = {
+    GT: busMap.GT[0] / busMap.GT[1],
+    IIT: busMap.IIT[0] / busMap.IIT[1],
+    UIUC: busMap.UIUC[0] / busMap.UIUC[1],
+    Purdue: busMap.Purdue[0] / busMap.Purdue[1],
+  };
 
-  return { answer: { one, two: busMap } };
+  return {
+    answer: {
+      one,
+      two,
+    },
+  };
 }
