@@ -38,7 +38,7 @@ export function solve(input: string): { answer: { one: number; two: TwoAnswerFor
   const busMap: BusMap = { GT: [0, 0], Purdue: [0, 0], UIUC: [0, 0], IIT: [0, 0] };
   for (let { busRoute, showedUp } of parsedData) {
     updateBusMap(busRoute as Route, showedUp, busMap);
-    one += showedUp ? DEPOSIT_COST : 0;
+    one += showedUp ? 0 : DEPOSIT_COST;
   }
 
   const two: TwoAnswerFormat = {
