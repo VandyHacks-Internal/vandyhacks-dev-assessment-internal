@@ -14,7 +14,7 @@ const updateBusMap = (route: Route, busMap: BusMap) => {
   else busMap[route]++;
 };
 
-export function solve(input: string): { answer: { one: number; two: Route } } {
+export function solve(input: string): { answer: { one: number; two: BusMap } } {
   const parsedData = input
     .split('\n')
     .map(el => {
@@ -31,13 +31,13 @@ export function solve(input: string): { answer: { one: number; two: Route } } {
     one += showedUp ? DEPOSIT_COST : 0;
   }
 
-  const [two] = Object.entries(busMap).reduce(
-    (acc, [route, curr]) => {
-      if (curr > acc[1]) return [route, curr];
-      return acc;
-    },
-    ['', 0],
-  );
+  // const [two] = Object.entries(busMap).reduce(
+  //   (acc, [route, curr]) => {
+  //     if (curr > acc[1]) return [route, curr];
+  //     return acc;
+  //   },
+  //   ['', 0],
+  // );
 
-  return { answer: { one, two: two as Route } };
+  return { answer: { one, two: busMap } };
 }
