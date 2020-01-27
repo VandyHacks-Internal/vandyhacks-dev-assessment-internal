@@ -22,9 +22,21 @@
     color: white;
     cursor: pointer;
   }
+
+  .blue {
+    border: 3px solid #1afbff;
+    color: #1afbff;
+  }
+
+  .blue:hover,
+  .blue:focus {
+    background-color: #1afbff;
+    color: white;
+    cursor: pointer;
+  }
 </style>
 
-<div>
+<div id="app">
 
   <svg viewBox="0 0 351.13 343.99">
     <defs>
@@ -76,11 +88,19 @@
     </strong>
   </p>
   {#each levels as level}
-    <a
-      class="btn {Boolean(ghUsername) ? 'green' : 'gray'}"
-      href={Boolean(ghUsername) ? `${baseURL}?user=${ghUsername}&level=${level}` : undefined}
-      target="_blank">
-      Get your input to level {level}
-    </a>
+    <div id="getButtons">
+      <a
+        class="btn {Boolean(ghUsername) ? 'green' : 'gray'}"
+        href={Boolean(ghUsername) ? `${baseURL}?user=${ghUsername}&level=${level}` : undefined}
+        target="_blank">
+        Get your input to level {level}
+      </a>
+      <a
+        class="btn {Boolean(ghUsername) ? 'blue' : 'gray'}"
+        href={Boolean(ghUsername) ? `${baseURL}?user=${ghUsername}&level=${level}&mode=cruzeirosimianheadphones` : undefined}
+        target="_blank">
+        Get your answer to level {level}
+      </a>
+    </div>
   {/each}
 </div>

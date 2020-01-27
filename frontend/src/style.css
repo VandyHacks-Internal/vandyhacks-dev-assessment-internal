@@ -34,10 +34,11 @@ input {
 }
 
 .btn {
-  margin: 1em auto;
+  margin: 0.5em;
+
   width: 12rem;
   text-decoration: none;
-  display: block;
+  display: inline-block;
   padding: 0.5em 2em;
   border-radius: 6px;
   background: none;
@@ -51,9 +52,13 @@ svg {
   width: 15%;
 }
 
-div {
+#app {
   text-align: center;
   margin-top: 2rem;
+}
+
+#getButtons {
+  display: block;
 }
 
 .red {
