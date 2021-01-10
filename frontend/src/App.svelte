@@ -81,7 +81,7 @@
     </strong>
   </p>
 
-  <input bind:value={ghUsername} />
+  <a class="btn" href={`${baseURL}/user`} target="_blank">
   <p class="red">
     <strong>
       {Boolean(ghUsername) ? 'Please make sure your GitHub Username is correct!' : ''}

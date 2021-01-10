@@ -1,11 +1,29 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, Express } from 'express';
 import { getProblemSolution } from '../src/solvers';
 import { retrieveGeneratedData } from '../src/generators';
 import { Level, SolveOrGenerate } from '../src/types';
+import { configuredGithubStrategy } from '../src/auth';
+import passport from 'passport';
+
+passport.use(configuredGithubStrategy);
 
 const app = express();
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj as Express.User);
+});
+
 const createPrefixedPath = (path = '') => `/api/${path}`;
 
+app.get(createPrefixedPath('user'), passport.authenticate('github'), (req, res) => {
+  return res.end(req.user);
+});
 // default to level 0 for both
 app.get(createPrefixedPath('solve/:user'), async (req, res) => {
   return res.redirect(createPrefixedPath(`solve/${req.params.user}/0`));

@@ -22,6 +22,7 @@
     "node-fetch": "^2.6.0",
     "node-static": "^0.7.11",
     "passport": "^0.4.1",
+    "passport-github": "^1.1.0",
     "readline-promise": "^1.0.4",
     "typescript": "^3.7.4"
   },
@@ -31,6 +32,8 @@
     "@types/faker": "^4.1.9",
     "@types/lodash": "^4.14.149",
     "@types/node-fetch": "^2.5.4",
+    "@types/passport": "^1.0.5",
+    "@types/passport-github": "^1.1.5",
     "dotenv": "^8.2.0",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-svelte": "^4.0.6",
