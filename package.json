@@ -15,7 +15,7 @@
   "dependencies": {
     "date-fns": "^2.9.0",
     "faker": "^4.1.0",
-    "firebase": "^7.6.1",
+    "firebase": "^8.2.2",
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1",
     "readline-promise": "^1.0.4",
