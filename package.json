@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"**/*.js\"",
-    "client:dev": "parcel frontend/index.html",
-    "now-build": "parcel build frontend/index.html",
-    "typecheck": "tsc"
+    "client:dev": "parcel --out-dir public frontend/index.html",
+    "build": "parcel build --out-dir public frontend/index.html",
+    "typecheck": "tsc",
+    "start": "vercel dev"
   },
   "author": "Benjamin Cooper",
   "license": "MIT",
@@ -30,7 +31,8 @@
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-svelte": "^4.0.6",
     "prettier": "^1.19.1",
-    "svelte": "^3.16.7"
+    "svelte": "^3.16.7",
+    "vercel": "^21.0.1"
   },
   "browserslist": [
     "last 1 chrome versions"
