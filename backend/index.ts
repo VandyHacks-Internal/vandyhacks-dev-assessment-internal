@@ -14,7 +14,7 @@ export default async function(req: NowRequest, res: NowResponse) {
 
     if (mode == null) mode = 'generate';
 
-    if (Array.isArray(user)) throw new Error('User is invalid');
+    if (Array.isArray(user) || user === undefined) throw new Error('User is invalid');
     user = user.toLowerCase();
 
     const levelNum = Number(level);
@@ -32,6 +32,7 @@ export default async function(req: NowRequest, res: NowResponse) {
 
     res.status(401).end('Mode is incorrect');
   } catch (err) {
+    console.log(err);
     res.status(401).end('Make sure the GitHub username is correctly entered.');
   }
 }
