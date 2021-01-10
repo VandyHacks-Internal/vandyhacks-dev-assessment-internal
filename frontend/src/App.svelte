@@ -91,13 +91,13 @@
     <div id="getButtons">
       <a
         class="btn {Boolean(ghUsername) ? 'green' : 'gray'}"
-        href={Boolean(ghUsername) ? `${baseURL}?user=${ghUsername}&level=${level}` : undefined}
+        href={Boolean(ghUsername) ? `${baseURL}/generate/${ghUsername}/${level}` : undefined}
         target="_blank">
         Get your input to level {level}
       </a>
       <a
         class="btn {Boolean(ghUsername) ? 'blue' : 'gray'}"
-        href={Boolean(ghUsername) ? `${baseURL}?user=${ghUsername}&level=${level}&mode=cruzeirosimianheadphones` : undefined}
+        href={Boolean(ghUsername) ? `${baseURL}/solve/${ghUsername}/${level}` : undefined}
         target="_blank">
         Get your answer to level {level}
       </a>

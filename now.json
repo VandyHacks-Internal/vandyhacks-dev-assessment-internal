@@ -2,12 +2,8 @@
   "version": 2,
   "routes": [
     {
-      "src": "/backend",
+      "src": "/api/(.*)",
       "dest": "/api/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "./public"
     }
   ],
   "env": {

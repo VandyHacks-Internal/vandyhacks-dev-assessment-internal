@@ -1,5 +1,5 @@
 import { Level, Solution } from '../types';
-import firebase from 'firebase';
+import { getFirebaseAppInstance } from '../database';
 
 import { solve as oneZero } from './day1/zero';
 import { solve as oneOne } from './day1/one';
@@ -13,8 +13,12 @@ const one = [oneZero, oneOne, oneTwo];
 const two = [twoZero, twoOne, twoTwo];
 
 export async function getProblemSolution(user: string, level: Level): Promise<Solution> {
+  if (level !== 0 && level !== 1 && level !== 2) throw new Error('Not valid level.');
+
+  const app = getFirebaseAppInstance();
+
   const { day, inputs } = (
-    await firebase
+    await app
       .database()
       .ref(`/users/${user}/`)
       .once('value')
