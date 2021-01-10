@@ -7,3 +7,5 @@ export enum Level {
 export interface Solution {
   answer: any;
 }
+
+export type SolveOrGenerate = 'solve' | 'generate';
