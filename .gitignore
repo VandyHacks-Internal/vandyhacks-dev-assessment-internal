@@ -109,3 +109,5 @@ dist
 # private data
 scripts/toAddList.json
 .vercel
+
+public/

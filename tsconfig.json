@@ -6,6 +6,6 @@
     "noEmit": true,
     "strictNullChecks": true
   },
-  "include": ["backend/**/*.ts"],
+  "include": ["src/**/*.ts", "api/**/*.ts", "types/**/*.d.ts"],
   "exclude": ["node_modules/**"]
 }
