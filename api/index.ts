@@ -1,9 +1,7 @@
 import express, { Request, Response } from 'express';
 import { getProblemSolution } from '../src/solvers';
 import { retrieveGeneratedData } from '../src/generators';
-import { Level } from '../src/types';
-
-type SolveOrGenerate = 'solve' | 'generate';
+import { Level, SolveOrGenerate } from '../src/types';
 
 const app = express();
 const createPrefixedPath = (path = '') => `/api/${path}`;
