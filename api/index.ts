@@ -25,7 +25,7 @@ const defaultHandler = async (req: Request, res: Response, requestType: SolveOrG
         ? await getProblemSolution(req.params.user, level)
         : await retrieveGeneratedData(req.params.user, level);
 
-    return res.set('Content-Type', 'application/json').end(JSON.stringify(rtn));
+    return res.end(rtn);
   } catch (err) {
     console.log(err);
     return res.status(500).end('Error, make sure user is valid and level is 0/1/2');
