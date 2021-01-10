@@ -1,16 +1,9 @@
 {
-  "builds": [
-    { "src": "backend/index.ts", "use": "@now/node" },
-    { "src": "package.json", "use": "@now/static-build" }
-  ],
+  "version": 2,
   "routes": [
     {
-      "src": "/backend",
-      "dest": "/backend/index.js"
-    },
-    {
-      "src": "/",
-      "dest": "/frontend/index.html"
+      "src": "/api/(.*)",
+      "dest": "/api/index.ts"
     }
   ],
   "env": {
