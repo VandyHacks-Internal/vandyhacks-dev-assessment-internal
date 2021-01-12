@@ -42,6 +42,7 @@ const eventNames = [
   'Social Skills Workshop',
   'TikTok Clout Challenge',
   'Speed Dating',
+  'Drip Test',
 ];
 
 // Fill an array with faker data
