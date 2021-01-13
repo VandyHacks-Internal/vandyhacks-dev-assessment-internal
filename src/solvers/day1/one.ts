@@ -17,6 +17,6 @@ export function solve(input: string) {
       }
     }
   }
-  console.log(recalculated);
-  return recalculated;
+
+  return { answer: recalculated };
 }
