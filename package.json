@@ -24,6 +24,7 @@
     "node-static": "^0.7.11",
     "passport": "^0.4.1",
     "readline-promise": "^1.0.4",
+    "tslib": "^2.1.0",
     "typescript": "^3.7.4"
   },
   "devDependencies": {

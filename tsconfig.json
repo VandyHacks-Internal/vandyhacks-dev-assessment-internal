@@ -4,7 +4,9 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "downlevelIteration": true,
+    "importHelpers": true
   },
   "include": ["src/**/*.ts", "api/**/*.ts", "types/**/*.d.ts"],
   "exclude": ["node_modules/**"]
