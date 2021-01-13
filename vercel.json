@@ -7,7 +7,7 @@
     }
   ],
   "env": {
-    "DATABASE_URL": "@database_url",
-    "SOLVE_SECRET": "@solve_secret"
+    "DATABASE_URL": "@vh-dev-firebase-url",
+    "SOLVE_SECRET": "@vh-dev-solve-secret"
   }
 }

@@ -10,7 +10,7 @@
     "build": "parcel build --out-dir public frontend/index.html",
     "typecheck": "tsc",
     "start": "vercel dev",
-    "preview": "vercel deploy -e DATABASE_URL=@vh-dev-firebase-url -e SOLVE_SECRET=@vh-dev-solve-secret"
+    "preview": "vercel deploy"
   },
   "author": "Benjamin Cooper",
   "license": "MIT",
