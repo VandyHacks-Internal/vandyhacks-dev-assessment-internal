@@ -81,7 +81,7 @@
     </strong>
   </p>
 
-  <input bind:value={ghUsername} />
+  <input bind:value={ghUsername} placeholder="your GitHub username" />
   <p class="red">
     <strong>
       {Boolean(ghUsername) ? 'Please make sure your GitHub Username is correct!' : ''}
