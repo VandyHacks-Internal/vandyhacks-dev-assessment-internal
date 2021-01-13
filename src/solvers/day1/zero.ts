@@ -10,7 +10,9 @@ export function solve(input: string): { answer: number } {
   let answer = 0;
 
   for (let countryCode of parsedData) {
-    if (countryCode !== 'US') answer++;
+    if (countryCode !== 'US') {
+      answer++;
+    }
   }
 
   return { answer };
