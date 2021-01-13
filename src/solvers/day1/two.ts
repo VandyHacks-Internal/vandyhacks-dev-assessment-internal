@@ -1,22 +1,25 @@
-import fetch from 'node-fetch';
+// interface scoreMap {
+//   [name: string]: number;
+// }
 
-const API_URL = 'https://api.exchangeratesapi.io/';
-const CURRENCY = 'GBP';
+// export function solve(input: string) {
+//   const data = JSON.parse(input);
+//   const recalculated: scoreMap = {};
+//   for (let { attendees } of data) {
+//     const filtered = [...new Set(attendees)];
+//     for (let attendee of filtered) {
+//       // obligatory type check
+//       if (typeof attendee === 'string') {
+//         recalculated[attendee] = 1 + (recalculated[attendee] || 0);
+//       } else {
+//         // Should never get here
+//         throw 'Someone (me) made an oopsie. Please contact sam@vandyhacks.org with a scathing bug report.';
+//       }
+//     }
+//   }
 
-const getApiURL = (date: string) => {
-  return `${API_URL}${date}?symbols=${CURRENCY}`;
-};
-
-const fetchByDate = async (date: string): Promise<number> => {
-  return (await (await fetch(getApiURL(date))).json()).rates[CURRENCY];
-};
-
-export async function solve(input: string): Promise<{ answer: number[] }> {
-  const dates = JSON.parse(input);
-
-  return {
-    answer: await Promise.all(
-      dates.map(async (date: string): Promise<number> => fetchByDate(date)),
-    ),
-  };
+//   return { answer: recalculated };
+// }
+export function solve(input: string) {
+  return { answer: 'Nice try. Check back here after your submission deadline!' };
 }

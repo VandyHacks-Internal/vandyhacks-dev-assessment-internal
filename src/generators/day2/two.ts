@@ -1,10 +1,3 @@
-import pokemon from './pokemon.json';
-
-import { shuffle, sampleSize } from 'lodash';
-import { getRandomInt } from '../util';
-
-export function generate() {
-  const num = getRandomInt(140, 385);
-
-  return JSON.stringify(shuffle(sampleSize(pokemon, num).map(el => el.name)));
+export function generate(): string {
+  return 'There is no input for this level. Good luck :)';
 }

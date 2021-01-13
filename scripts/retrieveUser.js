@@ -23,6 +23,6 @@ firebase.initializeApp({
       .once('value')
   ).val();
 
-  console.log(rawData.day, rawData.input ? Object.entries(rawData.input).length : 0);
+  console.log(rawData.day, rawData.inputs ? Object.entries(rawData.inputs).length : 0);
   process.exit(0);
 })();

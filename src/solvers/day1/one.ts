@@ -1,42 +1,23 @@
-const START = 9 * 3600 + 3 * 60;
-const END = 14 * 3600 + 38 * 60;
+// export function solve(input: string): { answer: number } {
+//   const parsedData = input
+//     .split('\n')
+//     .map(el => {
+//       const [_, __, ___, countryCode, ____, _____] = el.split(',');
+//       return countryCode;
+//     })
+//     .slice(1);
 
-interface HourMap {
-  [propName: number]: number;
-}
+//   let answer = 0;
 
-const updateHourMap = (hour: number, hourMap: HourMap) => {
-  if (hourMap[hour] == null) hourMap[hour] = 1;
-  else hourMap[hour]++;
-};
+//   for (let countryCode of parsedData) {
+//     if (countryCode !== 'US') {
+//       answer++;
+//     }
+//   }
 
-export function solve(input: string): { answer: { one: number; two: number } } {
-  const parsedData = input
-    .split('\n')
-    .map(el => {
-      const [_, __, ___, checkin] = el.split(',');
-      const [hour, minute, second] = checkin.split(':').map(el => Number(el));
+//   return { answer };
+// }
 
-      return [hour, hour * 3600 + minute * 60 + second];
-    })
-    .slice(1);
-
-  let one = 0;
-  const hourMap: HourMap = {};
-
-  for (let [hour, time] of parsedData) {
-    if (START <= time && time <= END) one++;
-    updateHourMap(hour, hourMap);
-  }
-
-  const [maxHour] = Object.entries(hourMap).reduce(
-    ([currMaxHour, currMax], [hour, count]) => {
-      if (count > currMax) return [hour, count];
-
-      return [currMaxHour, currMax];
-    },
-    ['', 0],
-  );
-
-  return { answer: { one, two: Number(maxHour) } };
+export function solve(input: string) {
+  return { answer: 'Nice try. Check back here after your submission deadline!' };
 }

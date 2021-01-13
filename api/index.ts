@@ -20,12 +20,13 @@ const defaultHandler = async (req: Request, res: Response, requestType: SolveOrG
 
   const level = Number(req.params.level) as Level;
   try {
-    const rtn =
-      requestType === 'solve'
-        ? await getProblemSolution(req.params.user, level)
-        : await retrieveGeneratedData(req.params.user, level);
-
-    return res.end(rtn);
+    if (requestType === 'solve') {
+      const rtn = await getProblemSolution(req.params.user, level);
+      return res.json(rtn); // Answer format will always be JSON
+    } else {
+      const rtn = await retrieveGeneratedData(req.params.user, level);
+      return res.end(rtn);
+    }
   } catch (err) {
     console.log(err);
     return res.status(500).end('Error, make sure user is valid and level is 0/1/2');
