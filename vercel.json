@@ -8,6 +8,8 @@
   ],
   "env": {
     "DATABASE_URL": "@vh-dev-firebase-url",
-    "SOLVE_SECRET": "@vh-dev-solve-secret"
+    "SOLVE_SECRET": "@vh-dev-solve-secret",
+    "IS_GENERATE_LOCKED": "IS_GENERATE_LOCKED",
+    "IS_SOLVE_LOCKED": "IS_SOLVE_LOCKED"
   }
 }
