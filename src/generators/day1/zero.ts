@@ -1,4 +1,4 @@
-export function generate() {
-  const numbers = [3, 13245, 563, 32431, 1098, 2212, -10, -333, 5, 0, 2201, 947, 3251].toString();
+export function generate(): string {
+  const numbers = '3\n13245\n563\n32431\n1098\n2212\n-10\n-333\n5\n0\n2201\n947\n3251';
   return numbers;
 }
