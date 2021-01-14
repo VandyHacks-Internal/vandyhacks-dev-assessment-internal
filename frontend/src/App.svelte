@@ -34,6 +34,10 @@
     color: white;
     cursor: pointer;
   }
+  
+  ::placeholder {
+    font-size: 0.7em;
+  }
 </style>
 
 <div id="app">
@@ -81,7 +85,7 @@
     </strong>
   </p>
 
-  <input bind:value={ghUsername} placeholder="your GitHub username" />
+  <input bind:value={ghUsername} placeholder="your github username" />
   <p class="red">
     <strong>
       {Boolean(ghUsername) ? 'Please make sure your GitHub Username is correct!' : ''}
