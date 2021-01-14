@@ -1,4 +1,5 @@
 import { Level } from '../types';
+import { generateLock } from '../placeholders';
 import { getFirebaseAppInstance } from '../database';
 
 import { generate as oneZero } from './day1/zero';
@@ -47,5 +48,10 @@ export async function retrieveGeneratedData(user: string, level: number) {
     inputData = dbValues.inputs;
   }
 
-  return inputData[level];
+  // TODO: This is an omega hack you should probably not use env variables lul
+  if (process.env.IS_GENERATE_LOCKED === 'false' || level === 0) {
+    return inputData[level];
+  } else {
+    return generateLock;
+  }
 }
