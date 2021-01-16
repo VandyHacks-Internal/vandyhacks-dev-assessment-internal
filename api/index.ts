@@ -29,7 +29,7 @@ const defaultHandler = async (req: Request, res: Response, requestType: SolveOrG
     }
   } catch (err) {
     console.log(err);
-    return res.status(500).end('Error, make sure user is valid and level is 0/1/2');
+    return res.status(500).end('Error, make sure user is valid and level is 0/1/2/3');
   }
 };
 

@@ -10,6 +10,10 @@
     "DATABASE_URL": "@vh-dev-firebase-url",
     "SOLVE_SECRET": "@vh-dev-solve-secret",
     "IS_GENERATE_LOCKED": "IS_GENERATE_LOCKED",
-    "IS_SOLVE_LOCKED": "IS_SOLVE_LOCKED"
+    "IS_SOLVE_LOCKED": "IS_SOLVE_LOCKED",
+    "DISCORD_BOT_TOKEN": "@vh-dev-discord-bot-token",
+    "DISCORD_API": "@vh-dev-discord-api",
+    "DISCORD_ENDPOINT_CHANNEL": "@vh-dev-discord-endpoint-channel",
+    "DISCORD_CATEGORY": "@vh-dev-discord-category"
   }
 }

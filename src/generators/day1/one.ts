@@ -25,7 +25,7 @@ const generateLine = (): [string, string, string, string, string] => {
   ];
 };
 
-export function generate() {
+export function generate(user: string) {
   const users = new Array(getRandomInt(480, 540)).fill(0).map(_ => generateLine());
 
   users.unshift(['Name', 'Phone', 'Email', 'Country Code', 'Grad Year']);

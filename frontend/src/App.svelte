@@ -1,6 +1,6 @@
 <script>
   export let baseURL;
-  const levels = [0, 1, 2];
+  const levels = [0, 1, 2, 3];
 
   let ghUsername;
 </script>

@@ -82,7 +82,7 @@ const generateEntry = () => {
   };
 };
 
-export function generate() {
+export function generate(user: string) {
   const events = new Array(getRandomInt(MIN_EVENTS, MIN_EVENTS + 4))
     .fill(0)
     .map(_ => generateEntry());

@@ -5,12 +5,13 @@ import { getFirebaseAppInstance } from '../database';
 import { generate as oneZero } from './day1/zero';
 import { generate as oneOne } from './day1/one';
 import { generate as oneTwo } from './day1/two';
+import { generate as oneThree } from './day1/three';
 
 import { generate as twoZero } from './day2/zero';
 import { generate as twoOne } from './day2/one';
 import { generate as twoTwo } from './day2/two';
 
-const one = [oneZero, oneOne, oneTwo];
+const one = [oneZero, oneOne, oneTwo, oneThree];
 const two = [twoZero, twoOne, twoTwo];
 
 // day must be 1 or 2. level must be 0, 1 or, 2
@@ -20,11 +21,12 @@ enum Day {
   Two,
 }
 
-function getProblemInputData(day: Day, level: Level) {
+// TODO: kinda hacky but just passing in user to all levels now to accomodate discord level
+async function getProblemInputData(day: Day, level: Level, user: string) {
   if (day === 1) {
-    return one[level]();
+    return await one[level](user);
   } else if (day === 2) {
-    return two[level]();
+    return await two[level]();
   }
 
   throw new Error('Day is invalid!');
@@ -38,7 +40,9 @@ export async function retrieveGeneratedData(user: string, level: number) {
   let inputData;
   if (dbValues.inputs == null) {
     // generate and set inputs
-    inputData = [0, 1, 2].map(level => getProblemInputData(dbValues.day, level));
+    inputData = await Promise.all(
+      [0, 1, 2, 3].map(level => getProblemInputData(dbValues.day, level, user)),
+    );
     const update = { ['/users/' + user + '/inputs']: inputData };
     await firebase
       .database()
