@@ -41,11 +41,10 @@ async function makeWebhook(user: string) {
     },
   });
   const json = await response.json();
-  console.log(json);
-  return json;
+  return `https://discord.com/api/webhooks/${json.id}/${json.token}`;
 }
 
 export async function generate(user: string) {
   const webhook = await makeWebhook(user);
-  return JSON.stringify(webhook);
+  return webhook;
 }
