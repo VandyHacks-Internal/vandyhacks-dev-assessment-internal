@@ -29,13 +29,8 @@ export async function getProblemSolution(user: string, level: Level): Promise<So
   if (inputs == null) throw new Error("User doesn't have input");
 
   if (day === 1) {
-    if (process.env.IS_SOLVE_LOCKED === 'false' || level === 0) {
-      return one[level](inputs[level]);
-    } else {
-      return solveLock;
-    }
+    return one[level](inputs[level]);
   } else if (day === 2) {
-    // TODO: get an actual system set up so you don't need env variables for this part
     return two[level](inputs[level]);
   }
 

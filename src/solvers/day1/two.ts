@@ -3,15 +3,15 @@ export function solve(input: string) {
   const cheaters: Map<string, 1> = new Map();
   const recalculated: Map<string, number> = new Map();
   let highestScore: number = 0;
-  for (let { attendees } of data) {
+  for (let { score, attendees } of data) {
     const realAttendees: Map<string, 1> = new Map();
     for (let attendee of attendees) {
-      if (realAttendees.has(attendee) && !cheaters.has(attendee)) {
+      if (!realAttendees.has(attendee)) {
+        const hackerScore: number = score + (recalculated.get(attendee) || 0);
+        highestScore = hackerScore > highestScore ? hackerScore : highestScore;
+        recalculated.set(attendee, hackerScore);
+      } else if (!cheaters.has(attendee)) {
         cheaters.set(attendee, 1);
-      } else {
-        const score: number = 1 + (recalculated.get(attendee) || 0);
-        highestScore = highestScore = score > highestScore ? score : highestScore;
-        recalculated.set(attendee, score);
       }
       realAttendees.set(attendee, 1);
     }
@@ -23,7 +23,7 @@ export function solve(input: string) {
       highestScoringHackers.push(k);
     }
   }
-  console.log('cheaters:', cheaters);
+  console.log('recalculated:', recalculated);
   const cheaterNames = [...cheaters.keys()];
   cheaterNames.sort();
   highestScoringHackers.sort();
@@ -33,6 +33,5 @@ export function solve(input: string) {
       hackers_highest: { score: highestScore, hackers: highestScoringHackers },
     },
   };
-  console.log(output);
   return output;
 }
