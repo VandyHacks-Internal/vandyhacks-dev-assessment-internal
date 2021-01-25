@@ -23,7 +23,6 @@ export function solve(input: string) {
       highestScoringHackers.push(k);
     }
   }
-  console.log('recalculated:', recalculated);
   const cheaterNames = [...cheaters.keys()];
   cheaterNames.sort();
   highestScoringHackers.sort();

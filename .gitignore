@@ -111,3 +111,6 @@ scripts/toAddList.json
 .vercel
 
 public/
+
+# Which users to add
+scripts/toAddList.js

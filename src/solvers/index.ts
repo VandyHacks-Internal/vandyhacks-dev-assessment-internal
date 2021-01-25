@@ -14,6 +14,21 @@ import { solve as twoTwo } from './day2/two';
 const one = [oneZero, oneOne, oneTwo, oneThree];
 const two = [twoZero, twoOne, twoTwo];
 
+const day1Release = new Date('January 17, 2021 18:00:00 UTC');
+const day2aRelease = new Date('January 27, 2021 18:00:00 UTC');
+const day2bRelease = new Date('January 28, 2021 18:00:00 UTC');
+
+function checkReady(day: number) {
+  const now = new Date();
+  // Day 0 for VH internal testing
+  return (
+    (day === 1 && now >= day1Release) ||
+    (day === 2 && now >= day2aRelease) ||
+    (day === 2.5 && now >= day2bRelease) ||
+    day === 0
+  );
+}
+
 export async function getProblemSolution(user: string, level: Level): Promise<Solution> {
   if (level !== 0 && level !== 1 && level !== 2 && level !== 3) throw new Error('Not valid level.');
 
@@ -28,11 +43,16 @@ export async function getProblemSolution(user: string, level: Level): Promise<So
 
   if (inputs == null) throw new Error("User doesn't have input");
 
+  // Check if ready to release generated values
+  if (level > 0 && !checkReady(day)) {
+    return solveLock;
+  }
+
   if (day === 1) {
     return one[level](inputs[level]);
-  } else if (day === 2) {
+  } else if (day === 2 || day === 2.5) {
     return two[level](inputs[level]);
   }
 
-  throw new Error("Day either doesn't exist or isn't 1/2");
+  throw new Error("Day either doesn't exist or isn't 1/2/2.5");
 }
