@@ -31,7 +31,7 @@ for (let i = 0; i < num_teams; i++) {
 // Ensure all unique inputs
 teams = [...new Set(teams)];
 num_teams = teams.length;
-
+console.log('num_teams:', num_teams);
 const generateTeams = () => {
   // Start placing members in teams
   for (let i = 0; i < hackers.length; i++) {
@@ -61,13 +61,6 @@ const generateTeams = () => {
     }
   }
 
-  // Clean up teams that are empty
-  teams.forEach((team, i, teams) => {
-    if (team.members.length == 0) {
-      teams.splice(i, 1);
-    }
-  });
-
   // Enforce edge case of one hacker double registering their own team
   const weirdTeam = getRandomInt(0, teams.length - 1);
   teams[weirdTeam].members.push(teams[weirdTeam].members[0]);
@@ -77,5 +70,11 @@ const generateTeams = () => {
 
 export function generate(user: string) {
   const teams = generateTeams();
+  // Clean up teams that are empty
+  for (let i = num_teams - 1; i >= 0; i--) {
+    if (teams[i].members.length == 0) {
+      teams.splice(i, 1);
+    }
+  }
   return JSON.stringify(teams);
 }
