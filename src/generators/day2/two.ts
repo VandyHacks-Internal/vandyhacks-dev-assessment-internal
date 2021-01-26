@@ -10,6 +10,8 @@ const NUM_HACKERS = getRandomInt(600, 700);
 for (let i = 0; i < NUM_HACKERS; i++) {
   hackers.push(faker.name.firstName() + ' ' + faker.name.lastName());
 }
+// Ensure all hackers unique
+hackers = [...new Set(hackers)];
 
 let minStartTime = 1601674200000; // October 2nd, 5:30pm
 
@@ -25,6 +27,8 @@ const NUM_TEAMS = getRandomInt(200, 300);
 for (let i = 0; i < NUM_TEAMS; i++) {
   teams.push({ teamName: generateTeamName(), members: [] });
 }
+// Ensure all unique inputs
+teams = [...new Set(teams)];
 
 const generateTeams = () => {
   // Start placing members in teams
