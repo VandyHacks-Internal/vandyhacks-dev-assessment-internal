@@ -30,7 +30,7 @@ firebase.initializeApp({
 
   if (
     mutableList.some(({ day }) => {
-      return day !== 1 && day !== 2;
+      return day !== 1 && day !== 2 && day != 2.5;
     })
   )
     throw new Error('At least one of your days is not 1 or 2');

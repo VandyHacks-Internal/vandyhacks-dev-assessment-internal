@@ -30,7 +30,8 @@ const day2bRelease = new Date('January 27, 2021 18:00:00 UTC');
 async function getProblemInputData(day: Day, level: Level, user: string) {
   if (day === 1) {
     return await one[level](user);
-  } else if (day === 2 || day === 2.5) {
+    // Day 0 maps to day 2 for now because feature was implemented after day 2
+  } else if (day === 2 || day === 2.5 || day === 0) {
     return await two[level](user);
   }
 

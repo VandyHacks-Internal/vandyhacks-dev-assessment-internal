@@ -1,4 +1,4 @@
-import pokemon from './pokemonWeight.json';
+// import pokemon from './pokemonWeight.json';
 
 // I'm not making an interface with every fucking Pokemon in it
 interface PokemonWeightMap {
