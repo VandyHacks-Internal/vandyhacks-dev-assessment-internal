@@ -6,12 +6,13 @@ import { getRandomInt, generateEmailDomain } from '../util';
 
 // Get all hackers
 let hackers: string[] = [];
-const NUM_HACKERS = getRandomInt(600, 700);
-for (let i = 0; i < NUM_HACKERS; i++) {
+let num_hackers = getRandomInt(600, 700);
+for (let i = 0; i < num_hackers; i++) {
   hackers.push(faker.name.firstName() + ' ' + faker.name.lastName());
 }
 // Ensure all hackers unique
 hackers = [...new Set(hackers)];
+num_hackers = hackers.length;
 
 let minStartTime = 1601674200000; // October 2nd, 5:30pm
 
@@ -23,12 +24,13 @@ const generateTeamName = () => {
 
 // Get all teams
 let teams: { teamName: string; members: { name: string; joinTime: number }[] }[] = [];
-const NUM_TEAMS = getRandomInt(200, 300);
-for (let i = 0; i < NUM_TEAMS; i++) {
+let num_teams = getRandomInt(200, 300);
+for (let i = 0; i < num_teams; i++) {
   teams.push({ teamName: generateTeamName(), members: [] });
 }
 // Ensure all unique inputs
 teams = [...new Set(teams)];
+num_teams = teams.length;
 
 const generateTeams = () => {
   // Start placing members in teams
@@ -43,7 +45,7 @@ const generateTeams = () => {
     const offset = getRandomInt(1000000, 2000000);
     let joinTime = getRandomInt(minStartTime, minStartTime + offset);
     for (let j = 0; j < numRegis; j++) {
-      const teamIndex = getRandomInt(0, NUM_TEAMS - 1);
+      const teamIndex = getRandomInt(0, num_teams - 1);
       /*
       If no hackers have joined yet, start from random start time.
       Else, current hacker must join at a time such that:
