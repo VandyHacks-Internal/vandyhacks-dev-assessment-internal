@@ -50,7 +50,7 @@ export async function getProblemSolution(user: string, level: Level): Promise<So
 
   if (day === 1) {
     return one[level](inputs[level]);
-  } else if (day === 2 || day === 2.5) {
+  } else if (day === 2 || day === 2.5 || day === 0) {
     return two[level](inputs[level]);
   }
 
