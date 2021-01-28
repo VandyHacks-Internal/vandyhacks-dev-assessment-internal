@@ -10,13 +10,14 @@ import { solve as oneThree } from './day1/three';
 import { solve as twoZero } from './day2/zero';
 import { solve as twoOne } from './day2/one';
 import { solve as twoTwo } from './day2/two';
+import { solve as twoThree } from './day2/three';
 
 const one = [oneZero, oneOne, oneTwo, oneThree];
-const two = [twoZero, twoOne, twoTwo];
+const two = [twoZero, twoOne, twoTwo, twoThree];
 
-const day1Release = new Date('January 17, 2021 18:00:00 UTC');
-const day2aRelease = new Date('January 27, 2021 18:00:00 UTC');
-const day2bRelease = new Date('January 28, 2021 18:00:00 UTC');
+const day1Release = new Date('January 18, 2021 18:00:00 UTC');
+const day2aRelease = new Date('January 30, 2021 18:00:00 UTC');
+const day2bRelease = new Date('January 30, 2021 18:00:00 UTC');
 
 function checkReady(day: number) {
   const now = new Date();
@@ -50,7 +51,7 @@ export async function getProblemSolution(user: string, level: Level): Promise<So
 
   if (day === 1) {
     return one[level](inputs[level]);
-  } else if (day === 2 || day === 2.5) {
+  } else if (day === 2 || day === 2.5 || day === 0) {
     return two[level](inputs[level]);
   }
 

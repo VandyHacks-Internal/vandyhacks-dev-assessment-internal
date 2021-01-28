@@ -1,6 +1,5 @@
 import faker from 'faker';
-import { range } from 'lodash';
-import { getRandomInt, generateEmailDomain } from '../util';
+import { getRandomInt } from '../util';
 
 // Returns JSON of eventNames and their respective point values and names of attendees.
 
@@ -13,6 +12,7 @@ for (let i = 0; i < num_hackers; i++) {
 // Ensure all hackers unique
 hackers = [...new Set(hackers)];
 num_hackers = hackers.length;
+console.log('num hackers:', num_hackers);
 
 let minStartTime = 1601674200000; // October 2nd, 5:30pm
 

@@ -1,14 +1,42 @@
-// import pokemon from './pokemonWeight.json';
+// TODO: TEST!
 
-// I'm not making an interface with every fucking Pokemon in it
-interface PokemonWeightMap {
-  [key: string]: number;
-}
+export function solve(input: string) {
+  const teams: {
+    teamName: string;
+    members: { name: string; joinTime: number }[];
+  }[] = ([] = JSON.parse(input));
 
-export function solve(input: string): { answer: number[] } {
-  const theirPokemons: string[] = JSON.parse(input);
+  // Get all hackers' final registrations (map to teamName and join time)
+  const hackers: Map<string, [string, number]> = new Map();
+  teams.forEach(team => {
+    team.members.forEach(member => {
+      const hacker = hackers.get(member.name);
+      if ((hacker !== undefined && hacker[1] < member.joinTime) || hacker === undefined) {
+        hackers.set(member.name, [team.teamName, member.joinTime]);
+      }
+    });
+  });
 
-  return {
-    answer: [1],
-  };
+  // Now build teams back up with unique hackers
+  const newTeams: Map<string, { name: string; joinTime: number }[]> = new Map();
+  hackers.forEach((hackerInfo, hackerName) => {
+    const newTeam = newTeams.get(hackerInfo[0]);
+    if (newTeam !== undefined) {
+      newTeam.push({ name: hackerName, joinTime: hackerInfo[1] });
+    } else {
+      newTeams.set(hackerInfo[0], [{ name: hackerName, joinTime: hackerInfo[1] }]);
+    }
+  });
+
+  // Now change to format of input data (that is, an array)
+  const newTeamsFormatted: {
+    teamName: string;
+    members: { name: string; joinTime: number }[];
+  }[] = [];
+
+  newTeams.forEach((members, teamName) => {
+    newTeamsFormatted.push({ teamName, members });
+  });
+
+  return { answer: newTeamsFormatted };
 }
