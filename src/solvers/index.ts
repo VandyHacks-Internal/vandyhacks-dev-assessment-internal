@@ -15,8 +15,8 @@ const one = [oneZero, oneOne, oneTwo, oneThree];
 const two = [twoZero, twoOne, twoTwo];
 
 const day1Release = new Date('January 17, 2021 18:00:00 UTC');
-const day2aRelease = new Date('January 27, 2021 18:00:00 UTC');
-const day2bRelease = new Date('January 28, 2021 18:00:00 UTC');
+const day2aRelease = new Date('January 30, 2021 18:00:00 UTC');
+const day2bRelease = new Date('January 30, 2021 18:00:00 UTC');
 
 function checkReady(day: number) {
   const now = new Date();
