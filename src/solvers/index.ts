@@ -10,9 +10,10 @@ import { solve as oneThree } from './day1/three';
 import { solve as twoZero } from './day2/zero';
 import { solve as twoOne } from './day2/one';
 import { solve as twoTwo } from './day2/two';
+import { solve as twoThree } from './day2/three';
 
 const one = [oneZero, oneOne, oneTwo, oneThree];
-const two = [twoZero, twoOne, twoTwo];
+const two = [twoZero, twoOne, twoTwo, twoThree];
 
 const day1Release = new Date('January 17, 2021 18:00:00 UTC');
 const day2aRelease = new Date('January 30, 2021 18:00:00 UTC');
