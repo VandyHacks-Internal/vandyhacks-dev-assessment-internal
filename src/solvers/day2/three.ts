@@ -3,6 +3,9 @@ export async function solve(input: string) {
   const numbers: string[] = input.split('\n');
   const altTexts: string[] = [];
   for (const number of numbers) {
+    if (number === '404') {
+      continue;
+    }
     const comic: Promise<{
       month: string;
       num: number;
