@@ -38,5 +38,14 @@ export function solve(input: string) {
     newTeamsFormatted.push({ teamName, members });
   });
 
-  return { answer: newTeamsFormatted };
+  // Now get question 2
+  const overLimitTeams: string[] = [];
+  const MAX_MEMBERS = 4;
+  for (const newTeam of newTeamsFormatted) {
+    if (newTeam.members.length > MAX_MEMBERS) {
+      overLimitTeams.push(newTeam.teamName);
+    }
+  }
+
+  return { answer: { newTeamsFormatted, overLimitTeams } };
 }
