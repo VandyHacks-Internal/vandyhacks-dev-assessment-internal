@@ -15,9 +15,9 @@ import { solve as twoThree } from './day2/three';
 const one = [oneZero, oneOne, oneTwo, oneThree];
 const two = [twoZero, twoOne, twoTwo, twoThree];
 
-const day1Release = new Date('January 18, 2021 18:00:00 UTC');
-const day2aRelease = new Date('January 30, 2021 18:00:00 UTC');
-const day2bRelease = new Date('January 30, 2021 18:00:00 UTC');
+const day1Release = new Date('January 18, 2021 00:00:00 UTC');
+const day2aRelease = new Date('January 30, 2021 00:00:00 UTC');
+const day2bRelease = new Date('January 30, 2021 00:00:00 UTC');
 
 function checkReady(day: number) {
   const now = new Date();
