@@ -41,17 +41,20 @@ async function fetchSolution(username, level) {
 }
 
 function checkArraysMatch(studentAnswer, solution) {
-  if (_.isEqual(studentAnswer, solution)) {
+  const diff = _.differenceWith(studentAnswer, solution, _.isEqual);
+  if (diff.length === 0) {
     console.log('*** Perfect match! ***'); // checked
   } else {
     // Check if just out of order
     console.log('No perfect match. Checking if out of order...');
     const solutionSorted = solution.concat().sort();
     const studentAnswerSorted = studentAnswer.concat().sort();
-    if (_.isEqual(studentAnswerSorted, solutionSorted)) {
-      console.log('*** Match BUT non-alphabetically sorted ***');
+    const sortedDiff = _.differenceWith(solutionSorted, studentAnswerSorted, _.isEqual);
+    if (sortedDiff.length === 0) {
+      console.log('*** Match BUT not sorted ***');
     } else {
       console.log('xxx Incorrect result xxx');
+      console.log('diff:', diff);
     }
   }
 }
@@ -113,6 +116,16 @@ function deepCompareTeams(studentAnswer, solution) {
   } else {
     console.log('xxx Level 2a incorrect result xxx');
   }
+}
+
+async function containsInvalidInput(username) {
+  // For day 2 level 3
+  const generateAPI = 'https://inputs.vandyhacks.dev/api/generate/';
+  const address = generateAPI + username + '/3';
+  let input = await (await fetch(address)).text();
+  input = input.trim().split('\n');
+
+  return input.includes('0') || input.includes('404');
 }
 
 const dayLevelCheckers = {
@@ -263,6 +276,12 @@ const dayLevelCheckers = {
       let solution = await fetchSolution(username, 3);
       solution = solution.answer;
       console.log('Checking level 3...');
+      // I made an error here and included 0 and 404 as inputs when they really shouldn't be.
+      if (containsInvalidInput(username)) {
+        console.log(
+          '[NOTE] User has bad input (includes 0 or 404). If the script marks their answer wrong, it may be because of this.',
+        );
+      }
       checkArraysMatch(studentAnswer, solution);
     } else {
       console.log('xxx Missing or empty', levelThreeFile, 'xxx');
