@@ -39,13 +39,15 @@ export function solve(input: string) {
   });
 
   // Now get question 2
-  const overLimitTeams: string[] = [];
+  const overflow: string[] = [];
   const MAX_MEMBERS = 4;
   for (const newTeam of newTeamsFormatted) {
     if (newTeam.members.length > MAX_MEMBERS) {
-      overLimitTeams.push(newTeam.teamName);
+      overflow.push(newTeam.teamName);
     }
   }
 
-  return { answer: { newTeamsFormatted, overLimitTeams } };
+  overflow.sort();
+
+  return { answer: { teams: newTeamsFormatted, overflow } };
 }
