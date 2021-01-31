@@ -177,7 +177,6 @@ const dayLevelCheckers = {
       // If lengths aren't the same then matching will never be true
       if (studentAnswer.length === 1) {
         const answers = studentAnswer[0].split(',');
-        score.A;
         if (
           solutionB.includes(answers[0]) &&
           solution.answer.hackers_highest.score.toString() === answers[1].trim()
