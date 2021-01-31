@@ -265,7 +265,7 @@ const dayLevelCheckers = {
     }
   },
   twoThree: async username => {
-    const levelThreeFile = 'level3/comics.txt';
+    const levelThreeFile = 'level3/comic.txt';
     if (checkExistAndNonEmpty(levelThreeFile)) {
       console.log('Found', levelThreeFile);
       const studentAnswer = fs
