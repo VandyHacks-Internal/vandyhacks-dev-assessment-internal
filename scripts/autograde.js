@@ -41,20 +41,17 @@ async function fetchSolution(username, level) {
 }
 
 function checkArraysMatch(studentAnswer, solution) {
-  const diff = _.differenceWith(studentAnswer, solution, _.isEqual);
-  if (diff.length === 0) {
+  if (solution.every((el, i) => el === studentAnswer[i])) {
     console.log('*** Perfect match! ***'); // checked
   } else {
     // Check if just out of order
     console.log('No perfect match. Checking if out of order...');
     const solutionSorted = solution.concat().sort();
     const studentAnswerSorted = studentAnswer.concat().sort();
-    const sortedDiff = _.differenceWith(solutionSorted, studentAnswerSorted, _.isEqual);
-    if (sortedDiff.length === 0) {
+    if (solutionSorted.every((el, i) => el === studentAnswerSorted[i])) {
       console.log('*** Match BUT not sorted ***');
     } else {
       console.log('xxx Incorrect result xxx');
-      console.log('diff:', diff);
     }
   }
 }
