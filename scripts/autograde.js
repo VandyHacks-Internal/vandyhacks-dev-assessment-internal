@@ -26,6 +26,14 @@ function validatePath() {
   }
 }
 
+function checkExistAndNonEmpty(basename) {
+  if (!fs.existsSync(path.join(REPO, basename))) {
+    return false;
+  }
+  const file = fs.readFileSync(path.join(REPO, basename), 'utf8');
+  return file !== undefined && file.length > 0;
+}
+
 async function fetchSolution(username, level) {
   const address = SOLVE_API + username + '/' + level.toString();
   const solution = await (await fetch(address)).json();
@@ -110,7 +118,7 @@ function deepCompareTeams(studentAnswer, solution) {
 const dayLevelCheckers = {
   oneOne: async username => {
     const levelOneFile = 'level1/vandy_intl.txt';
-    if (fs.existsSync(path.join(REPO, levelOneFile))) {
+    if (checkExistAndNonEmpty(levelOneFile)) {
       console.log('Found', levelOneFile);
       const studentAnswer = fs.readFileSync(path.join(REPO, levelOneFile), 'utf8').trim();
       const solution = await fetchSolution(username, 1);
@@ -122,7 +130,7 @@ const dayLevelCheckers = {
         console.log('xxx Level 1 incorrect result xxx');
       }
     } else {
-      console.log('xxx Missing', levelOneFile, 'xxx'); // checked
+      console.log('xxx Missing or empty', levelOneFile, 'xxx'); // checked
     }
   },
 
@@ -131,7 +139,7 @@ const dayLevelCheckers = {
     const solution = await fetchSolution(username, 2);
 
     // Check part 1
-    if (fs.existsSync(path.join(REPO, levelTwoFiles[0]))) {
+    if (checkExistAndNonEmpty(levelTwoFiles[0])) {
       console.log('Found', levelTwoFiles[0]);
       const studentAnswer = fs
         .readFileSync(path.join(REPO, levelTwoFiles[0]), 'utf8')
@@ -141,11 +149,11 @@ const dayLevelCheckers = {
       console.log('Checking Level 2A...');
       checkArraysMatch(studentAnswer, solutionA);
     } else {
-      console.log('xxx Missing', levelTwoFiles[0], 'xxx');
+      console.log('xxx Missing or empty', levelTwoFiles[0], 'xxx');
     }
 
     // Check for part 2.
-    if (fs.existsSync(path.join(REPO, levelTwoFiles[1]))) {
+    if (checkExistAndNonEmpty(levelTwoFiles[1])) {
       console.log('Found', levelTwoFiles[1]);
       const solutionB = solution.answer.hackers_highest.hackers.sort();
       const studentAnswer = fs
@@ -189,13 +197,13 @@ const dayLevelCheckers = {
         }
       }
     } else {
-      console.log('xxx Missing', levelTwoFiles[1], 'xxx');
+      console.log('xxx Missing or empty', levelTwoFiles[1], 'xxx');
     }
   },
 
   twoOne: async username => {
     const levelOneFile = 'level1/vandy_diet.txt';
-    if (fs.existsSync(path.join(REPO, levelOneFile))) {
+    if (checkExistAndNonEmpty(levelOneFile)) {
       console.log('Found', levelOneFile);
       const studentAnswer = fs.readFileSync(path.join(REPO, levelOneFile), 'utf8').trim();
       const solution = await fetchSolution(username, 1);
@@ -207,7 +215,7 @@ const dayLevelCheckers = {
         console.log('xxx Level 1 incorrect result xxx');
       }
     } else {
-      console.log('xxx Missing', levelOneFile, 'xxx');
+      console.log('xxx Missing or empty', levelOneFile, 'xxx');
     }
   },
 
@@ -215,7 +223,7 @@ const dayLevelCheckers = {
     const levelTwoFiles = ['level2/teams.json', 'level2/overflow.txt'];
     const solution = await fetchSolution(username, 2);
     // Check part 1
-    if (fs.existsSync(path.join(REPO, levelTwoFiles[0]))) {
+    if (checkExistAndNonEmpty(levelTwoFiles[0])) {
       console.log('Found', levelTwoFiles[0]);
       const studentAnswer = JSON.parse(
         fs.readFileSync(path.join(REPO, levelTwoFiles[0]), 'utf8').trim(),
@@ -225,11 +233,11 @@ const dayLevelCheckers = {
       // Check equality across all teams and their members
       deepCompareTeams(studentAnswer, solutionA);
     } else {
-      console.log('xxx Missing', levelTwoFiles[0], 'xxx');
+      console.log('xxx Missing or empty', levelTwoFiles[0], 'xxx');
     }
 
     // Check for part 2.
-    if (fs.existsSync(path.join(REPO, levelTwoFiles[1]))) {
+    if (checkExistAndNonEmpty(levelTwoFiles[1])) {
       console.log('Found', levelTwoFiles[1]);
       const solutionB = solution.answer.overflow.map(team => team.toLowerCase());
       const studentAnswer = fs
@@ -240,12 +248,12 @@ const dayLevelCheckers = {
       console.log('Checking level 2...');
       checkArraysMatch(studentAnswer, solutionB);
     } else {
-      console.log('xxx Missing', levelTwoFiles[1], 'xxx');
+      console.log('xxx Missing or empty', levelTwoFiles[1], 'xxx');
     }
   },
   twoThree: async username => {
     const levelThreeFile = 'level3/comics.txt';
-    if (fs.existsSync(path.join(REPO, levelThreeFile))) {
+    if (checkExistAndNonEmpty(levelThreeFile)) {
       console.log('Found', levelThreeFile);
       const studentAnswer = fs
         .readFileSync(path.join(REPO, levelThreeFile), 'utf8')
@@ -257,7 +265,7 @@ const dayLevelCheckers = {
       console.log('Checking level 3...');
       checkArraysMatch(studentAnswer, solution);
     } else {
-      console.log('xxx Missing', levelThreeFile, 'xxx');
+      console.log('xxx Missing or empty', levelThreeFile, 'xxx');
     }
   },
 };

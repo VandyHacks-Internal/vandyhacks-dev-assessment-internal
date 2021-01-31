@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
-import lodash from 'lodash';
+import _ from 'lodash';
 
 export async function solve(input: string) {
-  const numbers: string[] = lodash.without(input.split('\n'), '404');
+  const numbers: string[] = _.without(input.split('\n'), '0', '404');
   let altTexts: string[] = [];
   try {
     altTexts = await Promise.all(
