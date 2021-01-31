@@ -220,7 +220,7 @@ const dayLevelCheckers = {
       const studentAnswer = JSON.parse(
         fs.readFileSync(path.join(REPO, levelTwoFiles[0]), 'utf8').trim(),
       );
-      const solutionA = solution.answer.newTeamsFormatted;
+      const solutionA = solution.answer.teams;
 
       // Check equality across all teams and their members
       deepCompareTeams(studentAnswer, solutionA);
@@ -231,7 +231,7 @@ const dayLevelCheckers = {
     // Check for part 2.
     if (fs.existsSync(path.join(REPO, levelTwoFiles[1]))) {
       console.log('Found', levelTwoFiles[1]);
-      const solutionB = solution.answer.overLimitTeams.map(team => team.toLowerCase());
+      const solutionB = solution.answer.overflow.map(team => team.toLowerCase());
       const studentAnswer = fs
         .readFileSync(path.join(REPO, levelTwoFiles[1]), 'utf8')
         .trim()
